@@ -30,8 +30,8 @@ public class InMemoryAccountRepository implements AccountRepository {
     }
 
     @Override
-    public Account save(Account account) {
-        return data.put(account.getId(), account);
+    public void save(Account account) {
+        data.put(account.getId(), account);
     }
 
     private Comparator<? super Account> getComparator(String sortBy) {

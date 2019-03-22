@@ -54,8 +54,8 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Account create(Account account) {
-        return repository.save(account);
+    public void create(Account account) {
+        repository.save(account);
     }
 
     @Override

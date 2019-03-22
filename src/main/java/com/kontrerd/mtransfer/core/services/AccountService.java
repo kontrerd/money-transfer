@@ -12,7 +12,7 @@ public interface AccountService {
 
     List<Account> getAll(String sortBy, Long page, Long pageSize);
 
-    Account create(Account account);
+    void create(Account account);
 
     void create(List<Account> account);
 

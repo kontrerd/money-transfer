@@ -50,13 +50,14 @@ public class AccountResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public Response create(Account account) {
-        return Response.ok(accountService.create(account)).build();
+        accountService.create(account);
+        return Response.ok().build();
     }
 
     @POST
     @Path("/batch")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response create(List<Account> accounts) {
+    public Response batchCreate(List<Account> accounts) {
         accountService.create(accounts);
         return Response.ok().build();
     }

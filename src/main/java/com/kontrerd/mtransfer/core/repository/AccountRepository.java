@@ -12,5 +12,5 @@ public interface AccountRepository {
 
     List<Account> getAll(String sortBy, long page, long pageSize);
 
-    Account save(Account account);
+    void save(Account account);
 }

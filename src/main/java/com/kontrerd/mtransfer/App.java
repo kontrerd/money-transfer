@@ -29,7 +29,7 @@ public class App {
         };
     }
 
-    private static HttpServer startServer(ServiceLocator serviceLocator) {
+    public static HttpServer startServer(ServiceLocator serviceLocator) {
         return GrizzlyHttpServerFactory.createHttpServer(
                 UriBuilder.fromUri("http://localhost/").port(9090).build(),
                 new ResourceConfig().packages("com.kontrerd.mtransfer"),
