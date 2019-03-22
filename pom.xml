@@ -73,7 +73,13 @@
             <version>1.3</version>
             <scope>test</scope>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>3.3.0</version>
+            <scope>test</scope>
+        </dependency>
 
 
     </dependencies>
@@ -119,19 +125,33 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
+                <configuration>
+                    <excludedGroups>com.kontrerd.mtransfer.rest.IntegrationTest</excludedGroups>
+                    <excludes>
+                        <exclude>**/*IT.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.22.1</version>
+                <configuration>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                    <groups>com.kontrerd.mtransfer.rest.IntegrationTest</groups>
+                </configuration>
                 <executions>
                     <execution>
+                        <id>integration-tests</id>
                         <goals>
-                            <goal>java</goal>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <mainClass>com.kontrerd.mtransfer.App</mainClass>
-                </configuration>
             </plugin>
         </plugins>
     </build>
