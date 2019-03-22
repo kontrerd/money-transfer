@@ -18,7 +18,7 @@ After running project the API description available by the next address:
 [http://localhost:9090/application.wadl](http://localhost:9090/application.wadl)
 
 ## How to test
-To run integration tests clone the project and run:
+To run unit and integration tests clone the project and run:
 ```
-mvn failsafe:integration-test
+mvn clean install
 ```
